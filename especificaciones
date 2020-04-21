@@ -1,0 +1,40 @@
+Homework 2.3
+
+Data Structures Double Linked Lists Homework
+
+Create a program in C that performs the following operations
+with double linked lists, where the information field is a String:
+
+ 1. insert at the beginning (head, newData)
+ 2. insert at the end (head, newData)
+ 3. delete at the beginning (head)
+ 4. delete at the end (head)
+ 5. recursive print (head)
+ 6. recursive backwards print (head)
+ 7. search (head, data): Returns a boolean value.
+ 8. ascending sort the elements (head)
+ 9. descending sort the elements (head)
+ 0. quit
+
+Please, DO NOT use a "tail" pointer
+
+You can work in pairs
+
+DO NOT use a pointer to the last element (tail)
+
+The program must work reading the input redirected from a text file,
+DO NOT CHANGE THE MENU OPTION NUMBERS
+DON'T forget to free the memory when removing elements, and CLEAN the memory before freeing it.
+
+IMPORTANT:
+DO NOT UPLOAD executable files, upload only a file XXXXXXXX.c inside a folder  where XXXXXXXX is the digits of ONE student id
+The first lines of the source code must be student names and student ids as comments
+You can work in pairs.
+
+Follow the homework rules
+Follow the coding conventions
+
+
+Due date:
+
+Monday Apr 23, 2020      4:23 hrs
