@@ -52,6 +52,10 @@ int rprint(Node * ptn){
 }
 
 int rbprint(Node * ptn){
+    if(ptn){
+        rbprint(ptn -> next);
+        printf("Location: %p | Data: %s\n", ptn, ptn->data); 
+    }
     return 0;
 }
 
@@ -69,7 +73,7 @@ int dsort(Node ** head){
 
 int main(){
     int slc = 1;
-    Node * head = NULL;
+    Node * head = &n1;
     while(slc){
         menu(&slc);
         switch(slc){
