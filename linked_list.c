@@ -43,11 +43,15 @@ int dlte_e(Node ** head){
     return 0;
 }
 
-int rprint(Node ** head){
+int rprint(Node * ptn){
+    if(ptn){
+        printf("Location: %p | Data: %s\n", ptn, ptn->data); 
+        rprint(ptn -> next);
+    }
     return 0;
 }
 
-int rbprint(Node ** head){
+int rbprint(Node * ptn){
     return 0;
 }
 
@@ -64,8 +68,8 @@ int dsort(Node ** head){
 }
 
 int main(){
-    int slc;
-    Node * head;
+    int slc = 1;
+    Node * head = NULL;
     while(slc){
         menu(&slc);
         switch(slc){
@@ -82,10 +86,10 @@ int main(){
                 dlte_e(&head);
                 break;  
             case 5: 
-                rprint(&head);
+                rprint(head);
                 break;
             case 6: 
-                rbprint(&head);
+                rbprint(head);
                 break;
             case 7: 
                 search(&head, ntr_str());
