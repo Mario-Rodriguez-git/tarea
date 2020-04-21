@@ -72,16 +72,8 @@ int dsort(Node ** head){
 }
 
 int main(){
-<<<<<<< HEAD
     int slc = 1;
     Node * head = NULL;
-||||||| merged common ancestors
-    int slc;
-    Node * head;
-=======
-    int slc = 1;
-    Node * head = &n1;
->>>>>>> print_functions
     while(slc){
         menu(&slc);
         switch(slc){
