@@ -64,8 +64,8 @@ int dsort(Node ** head){
 }
 
 int main(){
-    int slc;
-    Node * head;
+    int slc = 1;
+    Node * head = NULL;
     while(slc){
         menu(&slc);
         switch(slc){
