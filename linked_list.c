@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 static const int MAX_SIZE=1024; 
 
@@ -108,8 +109,14 @@ int rbprint(Node * ptn) {
     return 0;
 }
 
-int search(Node ** head, char * str) {
-    return 0;
+char * search(Node ** head, char * str) {
+    Node * tmp = * head;
+    while(tmp){
+        if(!(strcmp(tmp -> data, str)))
+            return ("FOUND\n");
+        tmp = tmp -> next;
+    }
+    return "NOT FOUND\n";
 }
 
 int asort(Node ** head) {
@@ -148,7 +155,7 @@ int main() {
                 rbprint(head);
                 break;
             case 7: 
-                search(&head, ntr_str());
+                printf("%s", search(&head, ntr_str()));
                 break;
             case 8:
                 asort(&head);
