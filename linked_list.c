@@ -26,15 +26,11 @@ Node * mk_nd(){
     return node;
 }
 
-int set_prv(Node * head, Node *node){
-    head -> prev = node; 
-    return 0;
-}
-
 int insrt_b(Node ** head, Node *node){
+    Node * tmp = *head;
     node -> next = *head;
     if(*head)
-        set_prv(*head, node); 
+        tmp -> prev = node; 
     *head = node;
     return 0;
 }
@@ -66,7 +62,7 @@ int dlte_e(Node ** head){
 
 int rprint(Node * ptn){
     if(ptn){
-        printf("Location: %p | Data: %s\n", ptn, ptn->data); 
+        printf("Location: %p | Data: %s", ptn, ptn->data); 
         rprint(ptn -> next);
     }
     return 0;
