@@ -26,7 +26,16 @@ Node * mk_nd(){
     return node;
 }
 
+int set_prv(Node * head, Node *node){
+    head -> prev = node; 
+    return 0;
+}
+
 int insrt_b(Node ** head, Node *node){
+    node -> next = *head;
+    if(*head)
+        set_prv(*head, node); 
+    *head = node;
     return 0;
 }
 
