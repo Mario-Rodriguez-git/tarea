@@ -27,16 +27,16 @@ Node * mk_nd() {
 }
 
 int insrt_b(Node ** head, Node * node) {
-    Node * tmp = *head;
-    node -> next = *head;
-    if(*head)
+    Node * tmp = * head;
+    node -> next = * head;
+    if(* head)
         tmp -> prev = node; 
-    *head = node;
+    * head = node;
     return 0;
 }
 
-int insrt_e(Node ** head, Node *node) {
-    Node * tmp = *head;
+int insrt_e(Node ** head, Node * node) {
+    Node * tmp = * head;
     Node * prev_node;
     if(tmp) {
         while(tmp -> next) {
@@ -47,28 +47,36 @@ int insrt_e(Node ** head, Node *node) {
     node -> prev = tmp;
     }
     else {
-        *head = node;
+        * head = node;
     }
     return 0;
 }
 
 int dlte_b(Node ** head) {
     Node * tmp = * head; 
-    tmp -> data = NULL;
-    tmp -> prev = NULL; 
+    if(tmp -> next){
+        Node * tmp_next = tmp -> next;
+        * head = tmp_next;
+        tmp_next -> prev = NULL;
+    }
+    else{
+       * head = NULL; 
+    }
+    tmp -> prev = NULL;
     tmp -> next = NULL;
+    tmp -> data = NULL;
     free(tmp);
-    * head = NULL;
     return 0;
 }
 
 int dlte_e(Node ** head) {
+    
     return 0;
 }
 
 int rprint(Node * ptn) {
     if(ptn) {
-        printf("Location: %p | Data: %s\n", ptn, ptn->data); 
+        printf("Location: %p | Data: %s\n", ptn, ptn -> data); 
         rprint(ptn -> next);
     }
     return 0;
@@ -77,7 +85,7 @@ int rprint(Node * ptn) {
 int rbprint(Node * ptn) {
     if(ptn) {
         rbprint(ptn -> next);
-        printf("Location: %p | Data: %s\n", ptn, ptn->data); 
+        printf("Location: %p | Data: %s\n", ptn, ptn -> data); 
     }
     return 0;
 }
