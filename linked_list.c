@@ -53,6 +53,12 @@ int insrt_e(Node ** head, Node *node) {
 }
 
 int dlte_b(Node ** head) {
+    Node * tmp = * head; 
+    tmp -> data = NULL;
+    tmp -> prev = NULL; 
+    tmp -> next = NULL;
+    free(tmp);
+    * head = NULL;
     return 0;
 }
 
@@ -76,7 +82,7 @@ int rbprint(Node * ptn) {
     return 0;
 }
 
-bool search(Node ** head, char * str) {
+int search(Node ** head, char * str) {
     return 0;
 }
 
