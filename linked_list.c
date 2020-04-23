@@ -9,9 +9,8 @@ typedef struct Node{
     struct Node *prev;
 } Node; 
 
-int menu(int * slc){
+int menu(){
     printf("1. insert at the beginning\n2. insert at the end\n3. delete at the beginning\n4. delete at the end\n5. recursive print\n6. recursive backwards print\n7. search\n8. ascending sort the elements\n9. descending sort the elements\n0. quit\n");
-    scanf("%d *[^\n]",slc);
     return 0;
 }
 
@@ -72,10 +71,13 @@ int dsort(Node ** head){
 }
 
 int main(){
+    char str_val[MAX_SIZE];
     int slc = 1;
     Node * head = NULL;
     while(slc){
-        menu(&slc);
+        menu();
+        fgets(str_val, MAX_SIZE-1, stdin); 
+        slc = atoi(str_val);
         switch(slc){
             case 1:
                 insrt_b(&head, mk_nd());
