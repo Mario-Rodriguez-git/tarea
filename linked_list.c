@@ -40,6 +40,19 @@ int insrt_b(Node ** head, Node *node){
 }
 
 int insrt_e(Node ** head, Node *node){
+    Node * tmp = *head;
+    Node * prev_node;
+    if(tmp){
+        while(tmp -> next){
+            prev_node = tmp;
+            tmp = tmp -> next; 
+        }
+    tmp -> next = node; 
+    node -> prev = tmp;
+    }
+    else{
+        *head = node;
+    }
     return 0;
 }
 
