@@ -3,30 +3,30 @@
 
 static const int MAX_SIZE=1024; 
 
-typedef struct Node{
+typedef struct Node {
     char * data; 
     struct Node *next; 
     struct Node *prev;
 } Node; 
 
-int menu(){
+int menu() {
     printf("1. insert at the beginning\n2. insert at the end\n3. delete at the beginning\n4. delete at the end\n5. recursive print\n6. recursive backwards print\n7. search\n8. ascending sort the elements\n9. descending sort the elements\n0. quit\n");
     return 0;
 }
 
-char * ntr_str(){
+char * ntr_str() {
     char * str = malloc(MAX_SIZE);
     fgets(str, MAX_SIZE-1, stdin); 
     return str;
 }
 
-Node * mk_nd(){
+Node * mk_nd() {
     Node * node = malloc(sizeof(Node));
     node -> data = ntr_str();
     return node;
 }
 
-int insrt_b(Node ** head, Node *node){
+int insrt_b(Node ** head, Node * node) {
     Node * tmp = *head;
     node -> next = *head;
     if(*head)
@@ -35,68 +35,68 @@ int insrt_b(Node ** head, Node *node){
     return 0;
 }
 
-int insrt_e(Node ** head, Node *node){
+int insrt_e(Node ** head, Node *node) {
     Node * tmp = *head;
     Node * prev_node;
-    if(tmp){
-        while(tmp -> next){
+    if(tmp) {
+        while(tmp -> next) {
             prev_node = tmp;
             tmp = tmp -> next; 
         }
     tmp -> next = node; 
     node -> prev = tmp;
     }
-    else{
+    else {
         *head = node;
     }
     return 0;
 }
 
-int dlte_b(Node ** head){
+int dlte_b(Node ** head) {
     return 0;
 }
 
-int dlte_e(Node ** head){
+int dlte_e(Node ** head) {
     return 0;
 }
 
-int rprint(Node * ptn){
-    if(ptn){
-        printf("Location: %p | Data: %s", ptn, ptn->data); 
+int rprint(Node * ptn) {
+    if(ptn) {
+        printf("Location: %p | Data: %s\n", ptn, ptn->data); 
         rprint(ptn -> next);
     }
     return 0;
 }
 
-int rbprint(Node * ptn){
-    if(ptn){
+int rbprint(Node * ptn) {
+    if(ptn) {
         rbprint(ptn -> next);
         printf("Location: %p | Data: %s\n", ptn, ptn->data); 
     }
     return 0;
 }
 
-int search(Node ** head, char * str){
+bool search(Node ** head, char * str) {
     return 0;
 }
 
-int asort(Node ** head){
+int asort(Node ** head) {
     return 0;
 }
 
-int dsort(Node ** head){
+int dsort(Node ** head) {
     return 0;
 }
 
-int main(){
+int main() {
     char str_val[MAX_SIZE];
     int slc = 1;
     Node * head = NULL;
-    while(slc){
+    while(slc) {
         menu();
         fgets(str_val, MAX_SIZE-1, stdin); 
         slc = atoi(str_val);
-        switch(slc){
+        switch(slc) {
             case 1:
                 insrt_b(&head, mk_nd());
                 break;
