@@ -54,12 +54,12 @@ int insrt_e(Node ** head, Node * node) {
 
 int dlte_b(Node ** head) {
     Node * tmp = * head; 
-    if(tmp -> next){
+    if(tmp -> next) {
         Node * tmp_next = tmp -> next;
         * head = tmp_next;
         tmp_next -> prev = NULL;
     }
-    else{
+    else {
        * head = NULL; 
     }
     tmp -> prev = NULL;
@@ -70,7 +70,23 @@ int dlte_b(Node ** head) {
 }
 
 int dlte_e(Node ** head) {
-    
+    Node * tmp = * head; 
+    if(tmp) {
+        while(tmp -> next) {
+           tmp = tmp -> next;    
+        }
+        if(tmp -> prev) {
+            Node * tmp_prev = tmp -> prev; 
+            tmp_prev -> next = NULL;
+        }
+        if(tmp == * head) {
+            * head = NULL;
+        }
+        tmp -> prev = NULL;
+        tmp -> next = NULL;
+        tmp -> data = NULL;
+        free(tmp);
+    }
     return 0;
 }
 
