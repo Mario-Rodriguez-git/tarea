@@ -130,12 +130,31 @@ char * search(Node ** head, char * str) {
 }
 
 int asort(Node ** head) {
-    //int num = count(head); 
-    //int mvs = 0; 
-    //int i = 0; 
-    //while(i<num && mvs){
-         
-    //}
+    Node * tmp = * head; 
+    Node * crt_tmp = * head; 
+    Node * nxt_tmp = tmp -> next; 
+    Node swp;
+    int num = count(head); 
+    int not_mvs = 1; 
+    int i = 0; 
+    printf("numeros: %d\n", count(head));
+    while(i<num && !not_mvs){
+    printf("Entraste acá\n");
+        not_mvs = 1; 
+        if(strcmp(crt_tmp -> data, nxt_tmp -> data)){
+            swp = * crt_tmp;
+            crt_tmp -> next = nxt_tmp -> next; 
+            crt_tmp -> prev = nxt_tmp -> prev;  
+            nxt_tmp -> next = swp.next; 
+            nxt_tmp -> prev = swp.prev; 
+        }
+        else{
+            not_mvs--;
+        }
+        crt_tmp = crt_tmp -> next; 
+        nxt_tmp = crt_tmp -> next;
+        i++;
+    }
     return 0;
 }
 
