@@ -27,6 +27,16 @@ Node * mk_nd() {
     return node;
 }
 
+int count(Node ** head){
+    int cnt; 
+    Node * tmp = * head; 
+    while(tmp){
+        cnt++;  
+        tmp = tmp -> next; 
+    }
+    return cnt;
+}
+
 int insrt_b(Node ** head, Node * node) {
     Node * tmp = * head;
     node -> next = * head;
@@ -120,6 +130,12 @@ char * search(Node ** head, char * str) {
 }
 
 int asort(Node ** head) {
+    //int num = count(head); 
+    //int mvs = 0; 
+    //int i = 0; 
+    //while(i<num && mvs){
+         
+    //}
     return 0;
 }
 
