@@ -28,7 +28,7 @@ Node * mk_nd() {
 }
 
 int count(Node ** head){
-    int cnt; 
+    int cnt = 0; 
     Node * tmp = * head; 
     while(tmp){
         cnt++;  
