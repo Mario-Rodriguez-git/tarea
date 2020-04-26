@@ -6,8 +6,8 @@ static const int MAX_SIZE=1024;
 
 typedef struct Node {
     char * data; 
-    struct Node *next; 
-    struct Node *prev;
+    struct Node * next; 
+    struct Node * prev;
 } Node; 
 
 int menu() {
@@ -28,8 +28,8 @@ Node * mk_nd() {
 }
 
 int count(Node ** head){
-    int cnt = 0; 
-    Node * tmp = * head; 
+   int cnt = 0; 
+   Node * tmp = * head; 
     while(tmp){
         cnt++;  
         tmp = tmp -> next; 
@@ -130,29 +130,21 @@ char * search(Node ** head, char * str) {
 }
 
 int asort(Node ** head) {
-    Node * tmp = * head; 
-    Node * crt_tmp = * head; 
-    Node * nxt_tmp = tmp -> next; 
-    Node swp;
+    Node * cnt_tmp = * head; 
+    Node * nxt_tmp = cnt_tmp -> next; 
     int num = count(head); 
-    int not_mvs = 1; 
     int i = 0; 
-    printf("numeros: %d\n", count(head));
-    while(i<num && !not_mvs){
-    printf("Entraste acá\n");
-        not_mvs = 1; 
-        if(strcmp(crt_tmp -> data, nxt_tmp -> data)){
-            swp = * crt_tmp;
-            crt_tmp -> next = nxt_tmp -> next; 
-            crt_tmp -> prev = nxt_tmp -> prev;  
+    while(i<num-1){
+        if(strcmp(cnt_tmp -> data, nxt_tmp -> data)){
+            printf("Entraste acá\n");
+            Node swp = * cnt_tmp;
+            cnt_tmp -> next = nxt_tmp -> next; 
+            cnt_tmp -> prev = nxt_tmp -> prev;  
             nxt_tmp -> next = swp.next; 
             nxt_tmp -> prev = swp.prev; 
         }
-        else{
-            not_mvs--;
-        }
-        crt_tmp = crt_tmp -> next; 
-        nxt_tmp = crt_tmp -> next;
+        cnt_tmp = cnt_tmp -> next; 
+        nxt_tmp = cnt_tmp -> next;
         i++;
     }
     return 0;
